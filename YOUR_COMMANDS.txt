@@ -1,0 +1,143 @@
+================================================================
+   YOUR EXACT COMMANDS (Copy & Paste Ready)
+================================================================
+
+Based on your path: C:\Users\vyom\OneDrive\Desktop\baroda_project
+
+================================================================
+   SETUP (One-Time Only)
+================================================================
+
+Step 1: Start MongoDB
+---------------------
+net start MongoDB
+
+(If error, see MONGODB_SETUP.md for MongoDB Atlas setup)
+
+Step 2: Seed Demo Data
+---------------------
+cd C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system\backend
+npm run seed
+
+Wait for "Data seeded successfully!"
+
+================================================================
+   RUN APPLICATION (Every Time)
+================================================================
+
+Terminal 1 - Start Backend:
+--------------------------
+cd C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system\backend
+npm run dev
+
+✅ Wait for: "MongoDB Connected" and "Server running on port 5000"
+⚠️ KEEP THIS TERMINAL RUNNING!
+
+Terminal 2 - Start Frontend:
+---------------------------
+cd C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system\frontend
+npm run dev
+
+✅ Wait for: "Local: http://localhost:3000/"
+⚠️ KEEP THIS TERMINAL RUNNING TOO!
+
+Browser:
+--------
+Open: http://localhost:3000
+Login: admin@example.com / admin123
+
+================================================================
+   TROUBLESHOOTING COMMANDS
+================================================================
+
+Check if backend .env exists:
+-----------------------------
+cd C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system\backend
+type .env
+
+Should show MongoDB connection string
+
+Check if frontend .env exists:
+------------------------------
+cd C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system\frontend
+type .env
+
+Should show: VITE_API_URL=http://localhost:5000/api
+
+Kill port 5000 if busy:
+-----------------------
+netstat -ano | findstr :5000
+taskkill /PID <NUMBER_FROM_ABOVE> /F
+
+Kill port 3000 if busy:
+-----------------------
+netstat -ano | findstr :3000
+taskkill /PID <NUMBER_FROM_ABOVE> /F
+
+Reinstall dependencies:
+-----------------------
+cd C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system\backend
+rmdir /s /q node_modules
+npm install
+
+cd C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system\frontend
+rmdir /s /q node_modules
+npm install
+
+================================================================
+   QUICK RESTART
+================================================================
+
+If something breaks, do this:
+
+1. Press Ctrl+C in both terminals to stop
+2. Start MongoDB: net start MongoDB
+3. Restart backend:
+   cd C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system\backend
+   npm run dev
+
+4. Restart frontend:
+   cd C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system\frontend
+   npm run dev
+
+================================================================
+   BATCH FILES (EASIEST)
+================================================================
+
+Navigate to:
+C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system
+
+Then double-click:
+1. SEED_DATA.bat (first time only)
+2. START_APP.bat (every time you run)
+
+================================================================
+   SUCCESS INDICATORS
+================================================================
+
+✅ Backend working:
+   Terminal shows: "MongoDB Connected: localhost"
+   Terminal shows: "Server running in development mode on port 5000"
+
+✅ Frontend working:
+   Terminal shows: "VITE ready in XXX ms"
+   Terminal shows: "Local: http://localhost:3000/"
+
+✅ Application working:
+   Browser shows login page
+   Can login with admin@example.com / admin123
+   Dashboard shows statistics (Total Products: 10)
+
+================================================================
+   DEMO ACCOUNTS
+================================================================
+
+Email: admin@example.com     Password: admin123     Role: Admin
+Email: manager@example.com   Password: manager123   Role: Manager
+Email: staff@example.com     Password: staff123     Role: Staff
+
+================================================================
+
+💡 TIP: Save this file! It has all the commands you'll need.
+
+================================================================

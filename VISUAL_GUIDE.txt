@@ -1,0 +1,305 @@
+================================================================
+          VISUAL SETUP & RUN GUIDE
+================================================================
+
+
+                    START HERE
+                        │
+                        ▼
+        ┌───────────────────────────────┐
+        │   Is MongoDB Installed?       │
+        └───────────────────────────────┘
+                        │
+                ┌───────┴───────┐
+                │               │
+               YES             NO
+                │               │
+                │               ▼
+                │     ┌──────────────────────┐
+                │     │  Choose Setup:       │
+                │     │  A) MongoDB Atlas    │
+                │     │  B) Install Local    │
+                │     │                      │
+                │     │  Read:               │
+                │     │  MONGODB_SETUP.md    │
+                │     └──────────────────────┘
+                │               │
+                └───────┬───────┘
+                        │
+                        ▼
+        ┌───────────────────────────────┐
+        │   Start MongoDB Service       │
+        │   Command: net start MongoDB  │
+        └───────────────────────────────┘
+                        │
+                        ▼
+        ┌───────────────────────────────┐
+        │   Are Dependencies Installed? │
+        └───────────────────────────────┘
+                        │
+                ┌───────┴───────┐
+                │               │
+               YES             NO
+                │               │
+                │               ▼
+                │     ┌──────────────────────┐
+                │     │  cd backend          │
+                │     │  npm install         │
+                │     │                      │
+                │     │  cd frontend         │
+                │     │  npm install         │
+                │     └──────────────────────┘
+                │               │
+                └───────┬───────┘
+                        │
+                        ▼
+        ┌───────────────────────────────┐
+        │   Is Data Seeded?             │
+        └───────────────────────────────┘
+                        │
+                ┌───────┴───────┐
+                │               │
+               YES             NO
+                │               │
+                │               ▼
+                │     ┌──────────────────────┐
+                │     │  cd backend          │
+                │     │  npm run seed        │
+                │     │                      │
+                │     │  Wait for success    │
+                │     └──────────────────────┘
+                │               │
+                └───────┬───────┘
+                        │
+                        ▼
+        ┌───────────────────────────────┐
+        │   Open Terminal 1             │
+        │   cd backend                  │
+        │   npm run dev                 │
+        │                               │
+        │   ✅ "MongoDB Connected"       │
+        │   ✅ "Server running on 5000" │
+        │                               │
+        │   ⚠️ KEEP RUNNING!            │
+        └───────────────────────────────┘
+                        │
+                        ▼
+        ┌───────────────────────────────┐
+        │   Open Terminal 2 (NEW)       │
+        │   cd frontend                 │
+        │   npm run dev                 │
+        │                               │
+        │   ✅ "Local: localhost:3000"   │
+        │                               │
+        │   ⚠️ KEEP RUNNING!            │
+        └───────────────────────────────┘
+                        │
+                        ▼
+        ┌───────────────────────────────┐
+        │   Open Browser                │
+        │   http://localhost:3000       │
+        └───────────────────────────────┘
+                        │
+                        ▼
+        ┌───────────────────────────────┐
+        │   Login Page Appears          │
+        │                               │
+        │   Email: admin@example.com    │
+        │   Password: admin123          │
+        │                               │
+        │   Click "Login"               │
+        └───────────────────────────────┘
+                        │
+                        ▼
+        ┌───────────────────────────────┐
+        │   ✅ SUCCESS!                 │
+        │   Dashboard with Statistics   │
+        │                               │
+        │   - Total Products: 10        │
+        │   - Low Stock: 3              │
+        │   - Orders: 0                 │
+        │   - Revenue: $0.00            │
+        └───────────────────────────────┘
+
+
+================================================================
+          TROUBLESHOOTING FLOWCHART
+================================================================
+
+
+           ❌ ERROR OCCURRED
+                    │
+                    ▼
+        What type of error?
+                    │
+        ┌───────────┼───────────┐
+        │           │           │
+        │           │           │
+    MongoDB    Login/Register  Port
+    Error      Failed          In Use
+        │           │           │
+        │           │           │
+        ▼           ▼           ▼
+   ┌────────┐  ┌────────┐  ┌────────┐
+   │Check   │  │Check   │  │Kill    │
+   │MongoDB │  │backend │  │process │
+   │running │  │shows   │  │        │
+   │        │  │MongoDB │  │netstat │
+   │net     │  │Connec- │  │findstr │
+   │start   │  │ted     │  │:5000   │
+   │MongoDB │  │        │  │        │
+   │        │  │Use     │  │taskkill│
+   └────────┘  │demo    │  └────────┘
+               │account │
+               └────────┘
+
+
+================================================================
+          FILE STRUCTURE
+================================================================
+
+
+inventory-management-system/
+│
+├─ 📘 Documentation (Read These)
+│  ├─ START_HERE.md ⭐ (Start here)
+│  ├─ STEPS_TO_RUN.md (How to run)
+│  ├─ TROUBLESHOOTING.md (Fix errors)
+│  ├─ MONGODB_SETUP.md (Setup MongoDB)
+│  ├─ QUICK_REFERENCE.md (Commands)
+│  └─ README.md (Full docs)
+│
+├─ ⚡ Quick Start Scripts
+│  ├─ START_APP.bat (Double-click to run)
+│  └─ SEED_DATA.bat (Create demo data)
+│
+├─ 💻 Backend (API Server)
+│  ├─ .env ✅ (I created this)
+│  ├─ server.js
+│  └─ src/
+│     ├─ controllers/
+│     ├─ models/
+│     └─ routes/
+│
+└─ 🎨 Frontend (React App)
+   ├─ .env ✅ (I created this)
+   ├─ src/
+   │  ├─ pages/
+   │  ├─ components/
+   │  └─ context/
+   └─ package.json
+
+
+================================================================
+          ARCHITECTURE OVERVIEW
+================================================================
+
+
+    ┌─────────────────────────────────────┐
+    │         User's Browser              │
+    │      http://localhost:3000          │
+    │                                     │
+    │  React Frontend (TypeScript)        │
+    │  - Login/Register Pages             │
+    │  - Dashboard                        │
+    │  - Products Management              │
+    │  - Inventory Tracking               │
+    │  - Order Processing                 │
+    └─────────────────────────────────────┘
+                    │
+                    │ HTTP Requests
+                    │ (JWT Token)
+                    ▼
+    ┌─────────────────────────────────────┐
+    │     Express.js Backend              │
+    │      http://localhost:5000          │
+    │                                     │
+    │  - Authentication (JWT)             │
+    │  - Authorization (Roles)            │
+    │  - REST API Endpoints               │
+    │  - Business Logic                   │
+    │  - Validation                       │
+    └─────────────────────────────────────┘
+                    │
+                    │ Database Queries
+                    │ (Mongoose ODM)
+                    ▼
+    ┌─────────────────────────────────────┐
+    │         MongoDB Database            │
+    │   localhost:27017 or Atlas          │
+    │                                     │
+    │  Collections:                       │
+    │  - users                            │
+    │  - products                         │
+    │  - orders                           │
+    │  - inventorymovements               │
+    └─────────────────────────────────────┘
+
+
+================================================================
+          FEATURE MAP
+================================================================
+
+
+        ┌─────────────────────────────────┐
+        │        Login System             │
+        │  - Register new users           │
+        │  - JWT authentication           │
+        │  - Role-based access            │
+        └─────────────────────────────────┘
+                        │
+        ┌───────────────┼───────────────┐
+        │               │               │
+        ▼               ▼               ▼
+   ┌────────┐    ┌────────┐     ┌────────┐
+   │Products│    │Invent- │     │Orders  │
+   │        │    │ory     │     │        │
+   │-Create │    │        │     │-Create │
+   │-Edit   │    │-Adjust │     │-View   │
+   │-Delete │    │-Track  │     │-Confirm│
+   │-Search │    │-History│     │-Cancel │
+   └────────┘    └────────┘     └────────┘
+        │               │               │
+        └───────────────┼───────────────┘
+                        ▼
+        ┌─────────────────────────────────┐
+        │          Dashboard              │
+        │  - Statistics                   │
+        │  - Charts                       │
+        │  - Recent Activity              │
+        │  - Alerts                       │
+        └─────────────────────────────────┘
+
+
+================================================================
+          SUCCESS CHECKLIST
+================================================================
+
+Setup Phase:
+  ☐ MongoDB installed or Atlas configured
+  ☐ Dependencies installed (npm install)
+  ☐ Demo data seeded (npm run seed)
+  ☐ .env files exist (I created them)
+
+Running Phase:
+  ☐ MongoDB service running
+  ☐ Backend terminal shows "MongoDB Connected"
+  ☐ Backend terminal shows "Server running on port 5000"
+  ☐ Frontend terminal shows "Local: http://localhost:3000"
+  ☐ Browser opens login page
+  ☐ Can login with admin@example.com / admin123
+  ☐ Dashboard displays with statistics
+
+Testing Phase:
+  ☐ Can view all 10 demo products
+  ☐ Can create a new product
+  ☐ Can adjust stock
+  ☐ Can create an order
+  ☐ Can confirm order (stock decreases)
+  ☐ Dashboard updates with new data
+
+================================================================
+
+💡 TIP: Print this file or keep it open while setting up!
+
+================================================================

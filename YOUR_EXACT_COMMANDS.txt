@@ -1,0 +1,113 @@
+================================================================
+   COPY AND PASTE THESE COMMANDS
+================================================================
+
+Open Command Prompt (Win + R, type "cmd", press Enter)
+Then copy and paste these commands one by one:
+
+================================================================
+COMMAND 1: Navigate to Project
+================================================================
+
+cd C:\Users\vyom\OneDrive\Desktop\baroda_project\inventory-management-system
+
+
+================================================================
+COMMAND 2: Initialize Git
+================================================================
+
+git init
+
+
+================================================================
+COMMAND 3: Add All Files
+================================================================
+
+git add .
+
+
+================================================================
+COMMAND 4: Create Commit
+================================================================
+
+git commit -m "Initial commit: Complete MERN Inventory Management System with authentication, product management, inventory tracking, and order processing"
+
+
+================================================================
+NOW: Create GitHub Repository (Browser)
+================================================================
+
+1. Open: https://github.com/new
+2. Repository name: inventory-management-system
+3. Description: Full-stack MERN Inventory Management System
+4. Choose: Public
+5. Click: "Create repository"
+
+6. After creating, copy YOUR repository URL. It looks like:
+   https://github.com/YOUR_USERNAME/inventory-management-system.git
+
+================================================================
+COMMAND 5: Add Remote (REPLACE WITH YOUR URL)
+================================================================
+
+git remote add origin YOUR_REPOSITORY_URL_HERE
+
+
+EXAMPLE (if your username is "vyom"):
+git remote add origin https://github.com/vyom/inventory-management-system.git
+
+
+================================================================
+COMMAND 6: Push to GitHub
+================================================================
+
+git branch -M main
+
+git push -u origin main
+
+
+================================================================
+AUTHENTICATION (If Asked)
+================================================================
+
+If it asks for username and password:
+
+Username: Your GitHub username
+Password: Use Personal Access Token (NOT your password)
+
+To get token:
+1. Go to: https://github.com/settings/tokens
+2. Generate new token (classic)
+3. Select "repo" scope
+4. Copy the token
+5. Paste as password
+
+
+================================================================
+VERIFY ON GITHUB
+================================================================
+
+After pushing, go to:
+https://github.com/YOUR_USERNAME/inventory-management-system
+
+You should see:
+✅ All your code files
+✅ README.md displaying nicely
+✅ .env files NOT visible (correct - they're sensitive)
+✅ .env.example files visible
+
+
+================================================================
+DONE! 🎉
+================================================================
+
+Your repository is live at:
+https://github.com/YOUR_USERNAME/inventory-management-system
+
+Share this URL with:
+- Recruiters
+- Interviewers
+- On your resume
+- On LinkedIn
+
+================================================================
